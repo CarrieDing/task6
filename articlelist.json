@@ -1,0 +1,48 @@
+var articleService=function(){
+var articles=[
+{
+  "id": "1",
+  "name": "欢迎使用JSON在线解析编辑器",
+  "type": "行业",
+  "createtime": "2017-05-06",
+  "lastmodifiedtime": "2017-05-06",
+  "createuser": "admin",
+  "status": "0",
+  "operation": "delete"
+},
+{
+  "id": "1",
+  "name": "欢迎使用JSON在线解析编辑器",
+  "type": "行业",
+  "createtime": "2017-05-06",
+  "lastmodifiedtime": "2017-05-06",
+  "createuser": "admin",
+  "status": "0",
+  "operation": "delete"
+}
+{
+  "id": "1",
+  "name": "欢迎使用JSON在线解析编辑器",
+  "type": "行业",
+  "createtime": "2017-05-06",
+  "lastmodifiedtime": "2017-05-06",
+  "createuser": "admin",
+  "status": "0",
+  "operation": "delete"
+}
+];
+
+return{
+	getAll:function(){
+		return articles;
+	},
+	getById:function(){
+		for(var i=0;i<articles.length;i++){
+			if(articles[i].id===id){
+				return articles[i];
+			}
+		}
+		return null;
+	}
+};
+};
