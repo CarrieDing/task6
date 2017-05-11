@@ -1,0 +1,131 @@
+<nav class="navbar ng-isolate-scope" role="navigation" ng-cloak  ng-controller="DashboardCtrl">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <div  class="nav navbar-nav navbar-right">
+        <div>
+          <h3 style="float: left">{{user.name}}</h3>
+          <input type="button" ng-click="user.logout()" value="Log Out" style="float:left;margin: 1.5rem 1rem;background-color: #03a9f4">
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<nav class="navbar"  style="float:left;width:240px">
+  <div class="container-fluid" id="main-nav">
+    <div class="">
+      <ul class="nav nav-list">
+        <li class="nav-header">后台管理系统</li>
+        <li  ng-class="{active: activeView==='dashboard'}"><a href="/dashboard">列表管理</a>
+          <ul ng-class="{active: activeView==='articlelist'}">
+            <a href="/articlelist">Article列表</a>
+          </ul>
+        </li>
+        <li><a href="#">内容管理</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div style="float:left;width: 80%">
+
+
+
+<div class="panel panel-info"   >
+  <div class="panel-heading">
+新增Article
+  </div>
+  <div class="panel-body" ng-controller="AddarticleCtrl">
+    <form role="form" name="myForm" id="myForm" ng-model="myForm" novalidate class="form-horizontal" enctype="multipart/form-data"><!--novalidate用于取消浏览器的默认验证-->
+      <div class="form-group">
+      <label class="col-sm-2 control-label">标题名称</label>
+        <div class="col-sm-10">
+          <input type="text" name="name" id="articlename" class="form-control" placeholder="请输入标题名称" required ng-model="article.name"/>
+          <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.name.$valid"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">类型</label>
+        <div  class="col-sm-10">
+        <select  class="form-control" name="type"  id="articletype"  required="required"  >
+          <option value="test" disabled selected>请务必选择一个</option>
+          <option>首页</option>
+          <option>找职位</option>
+          <option>找精英</option>
+          <option>行业大图</option>
+        </select>
+          <!--<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.type.$valid"></span>-->
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">说明</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="articledes" name="description" placeholder="" required ng-model="article.description">
+          <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.description.$valid"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">跳转链接</label>
+        <div class="col-sm-10">
+          <input type="url" class="form-control" name="gotoLink" id="articlelink"  placeholder="请输入URL" required="required" ng-model="article.gotoLink"/>
+          <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.gotoLink.$valid"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">配图</label>
+        <div class="col-sm-10">
+          <input type="file" file-model="myFile"  nv-file-select uploader="uploader">
+        </div>
+        <div class="col-sm-2">
+          <img alt="配图预览" ng-src="{{imageSrc}}" style="max-width:300px;max-height: 300px;margin:  0 auto;display: block" class="img-responsive">
+        </div>
+
+        <div class="col-md-11">
+          <label class="col-sm-2 control-label"></label>
+          <div class="table-responsive col-md-8 padding-0">
+            <table class="table" >
+              <thead>
+              <tr><th>图片名</th>
+                <th>文件大小</th>
+                <th>进度</th>
+                <th>操作</th>
+                <th>操作</th>
+              </tr></thead>
+              <tbody>
+              <tr ng-repeat="item in uploader.queue">
+                <td >{{uploadImages.imageName}}</td>
+                <td >{{uploadImages.imageSize}}</td>
+                <td></td>
+                <td nowrap>
+                  <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                    <span class="glyphicon glyphicon-upload"></span> Upload
+                  </button>
+                  <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                  </button>
+                  <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                    <span class="glyphicon glyphicon-trash"></span> Remove
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success" ng-disabled="myForm.$invalid" ng-click="addArticle2panel()" >立即上线</button>
+          <button type="submit" class="btn btn-success" ng-disabled="myForm.$invalid">存为草稿</button>
+          <button type="submit" class="btn btn-default pull-right" ng-disabled="myForm.$valid" ng-click="back2Panel()">取消</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

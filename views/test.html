@@ -1,0 +1,9 @@
+<table ng-table="articlelist.tableParams" show-filter="true" class="table table-hover">
+  <tr ng-repeat="article in $data">
+    <td>{{article.id}}</td>
+    <td>{{article.name}}</td>
+    <td>{{article.type}}</td>
+    <td>{{article.createtime}}</td>
+    <td>{{article.lastmodifiedtime}}</td>
+  </tr>
+</table>

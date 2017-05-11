@@ -1,0 +1,30 @@
+<nav class="navbar ng-isolate-scope" role="navigation" ng-cloak  ng-controller="DashboardCtrl">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <div  class="nav navbar-nav navbar-right">
+        <div>
+          <h3 style="float: left">{{user.name}}</h3>
+          <input type="button" ng-click="user.logout()" value="Log Out" style="float:left;margin: 1.5rem 1rem;background-color: #03a9f4">
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<nav class="navbar"  style="float:left;width:240px">
+<div class="container-fluid" id="main-nav">
+<div class="">
+<ul class="nav nav-list">
+<li class="nav-header">后台管理系统</li>
+<li  ng-class="{active: activeView==='welcomepage'}"><a href="/welcomepage">列表管理</a>
+<ul ng-class="{active: activeView==='articlelist'}">
+<a href="/articlelist">Article列表</a>
+</ul>
+</li>
+<li><a href="#">内容管理</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+
+

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="pttengApp" ng-controller="ArticlelistCtrl">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <nav class="navbar" role="navigation" ng-cloak>
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+          <div  class="nav navbar-nav navbar-right">
+    <div ng-show="user.loggedIn">
+      <h3 style="float: left">{{user.name}}</h3>
+      <input type="button" ng-click="user.logout()" value="Log Out" style="float:left;margin: 1.5rem 1rem;background-color: #03a9f4">
+    </div>
+    <div ng-show="!user.loggedIn">
+      <div style="margin: 1.5rem 1rem;color: black">
+<div ng-controller="LoginCtrl">
+
+        Username:<input type="text" ng-model="username">
+        Password:<input type="password" ng-model="password">
+        <input type="button" ng-click="login()" value="Log In">
+</div>
+
+      </div>
+    </div>
+      </div>
+      </div>
+      </div>
+    </nav>
+
+
+
+    <!--<nav class="navbar"  style="float:left;width:240px">-->
+      <!--<div class="container-fluid" id="main-nav">-->
+        <!--<div class="">-->
+          <!--<ul class="nav nav-list">-->
+            <!--<li class="nav-header">后台管理系统</li>-->
+
+            <!--&lt;!&ndash;<li ng-class="{active: activeView==='articlelist'}">&ndash;&gt;-->
+              <!--&lt;!&ndash;<a href="/#!/articlelist">Article列表</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+
+            <!--<li  ng-class="{active: activeView==='welcomepage'}"><a href="/#!/welcomepage">列表管理</a>-->
+              <!--<ul ng-class="{active: activeView==='articlelist'}">-->
+              <!--<a href="/#!/articlelist">Article列表</a>-->
+              <!--</ul>-->
+            <!--</li>-->
+
+            <!--<li><a href="#">内容管理</a></li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</nav>-->
+    <!--<div class="container-fluid" id="main" style="float:left;width: calc(100% - 240px);">-->
+      <!--<div ng-view=""></div>-->
+    <!--</div>-->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/directives/tsk6-article-panel.js"></script>
+        <script src="scripts/controllers/articlelist.js"></script>
+        <script src="scripts/controllers/addarticle.js"></script>
+        <script src="scripts/controllers/welcomepage.js"></script>
+        <script src="scripts/directives/tsk6-article-table.js"></script>
+        <script src="scripts/directives/tsk6-article-row.js"></script>
+        <script src="scripts/services/article-service.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+    <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+        <script src="scripts/services/user-service.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+
+        <script src="scripts/directives/file-model.js"></script>
+        <script src="scripts/services/file-reader.js"></script>
+        <script src="scripts/services/articletable-service.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

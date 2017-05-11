@@ -1,0 +1,21 @@
+<div class="wrap" ng-controller="LoginCtrl">
+  <fieldset id="login">
+    <legend>后台登录系统</legend>
+    <form>
+      <p>
+        <label>用户名
+          <input name="name" ng-model="username" class="name" type="text" id="name" value="" autofocus="autofocus"  />
+        </label>
+      </p>
+      <p>
+        <label>密&#12288;码
+          <input name="password" ng-model="password" class="password" type="password" id="password" value="" />
+        </label>
+      </p>
+      <p id="warning" class="warning"></p>
+      <p>
+        <input type="button" ng-click="login()" id="submitBtn" class="button" value="登录"/>
+      </p>
+    </form>
+  </fieldset>
+</div>
